@@ -20,11 +20,19 @@ System.register(['angular2/core'], function(exports_1, context_1) {
         execute: function() {
             AppComponent = (function () {
                 function AppComponent() {
+                    this.name = 'x9663605';
+                    this.count = 0;
                 }
+                AppComponent.prototype.countButton = function () {
+                    this.count += 1;
+                };
+                AppComponent.prototype.resetCountButton = function () {
+                    this.count = 0;
+                };
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'my-app',
-                        template: '<h1>Hello world</h1>'
+                        template: "\n<h1>Hello {{name}}</h1>\n<p>You clicked {{count}} times.</p>\n<button (click)=\"countButton()\">Count</button>\n<button (click)=\"resetCountButton()\">Reset</button>\n"
                     }), 
                     __metadata('design:paramtypes', [])
                 ], AppComponent);
