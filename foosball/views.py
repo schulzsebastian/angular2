@@ -1,8 +1,13 @@
 from django.core import serializers
-from django.http import JsonResponse
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
 from foosball.models import Player
+from foosball.serializers import PlayerSerializer
 import json
 
-def index(request):
-    players = Player.objects.all()
-    return JsonResponse(json.loads(serializers.serialize('json', players)), safe=False)
+@api_view(['GET'])
+def get_players(request):
+    if request.method == 'GET':
+        players = Player.objects.all()
+        serializer = PlayerSerializer(players, many=True)
+        return Response(serializer.data)
