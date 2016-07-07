@@ -1,22 +1,12 @@
 import {Component} from 'angular2/core';
+import {RankingComponent} from './ranking.component'
 
 @Component({
     selector: 'my-app',
     template: `
-<h1>Hello {{name}}</h1>
-<p>You clicked {{count}} times.</p>
-<button (click)="countButton()">Count</button>
-<button (click)="resetCountButton()">Reset</button>
-`
+	<h1>Ranking</h1>
+	<ranking></ranking>
+	`,
+	directives: [RankingComponent]
 })
-export class AppComponent {
-	name = 'x9663605';
-	count = 0;
-
-	countButton(){
-		this.count += 1
-	}
-	resetCountButton(){
-		this.count = 0
-	}
-}
+export class AppComponent { }

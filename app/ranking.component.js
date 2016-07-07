@@ -1,4 +1,4 @@
-System.register(['angular2/core', './ranking.component'], function(exports_1, context_1) {
+System.register(['angular2/core', './ranking.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,32 +10,33 @@ System.register(['angular2/core', './ranking.component'], function(exports_1, co
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, ranking_component_1;
-    var AppComponent;
+    var core_1, ranking_service_1;
+    var RankingComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             },
-            function (ranking_component_1_1) {
-                ranking_component_1 = ranking_component_1_1;
+            function (ranking_service_1_1) {
+                ranking_service_1 = ranking_service_1_1;
             }],
         execute: function() {
-            AppComponent = (function () {
-                function AppComponent() {
+            RankingComponent = (function () {
+                function RankingComponent(rankingService) {
+                    this.players = rankingService.getPlayers();
                 }
-                AppComponent = __decorate([
+                RankingComponent = __decorate([
                     core_1.Component({
-                        selector: 'my-app',
-                        template: "\n\t<h1>Ranking</h1>\n\t<ranking></ranking>\n\t",
-                        directives: [ranking_component_1.RankingComponent]
+                        selector: 'ranking',
+                        template: "\n\t<ul>\n\t<li *ngFor=\"#player of players\">{{ player.name }} ({{ player.points }})</li>\n\t</ul>\n\t",
+                        providers: [ranking_service_1.RankingService]
                     }), 
-                    __metadata('design:paramtypes', [])
-                ], AppComponent);
-                return AppComponent;
+                    __metadata('design:paramtypes', [ranking_service_1.RankingService])
+                ], RankingComponent);
+                return RankingComponent;
             }());
-            exports_1("AppComponent", AppComponent);
+            exports_1("RankingComponent", RankingComponent);
         }
     }
 });
-//# sourceMappingURL=app.component.js.map
+//# sourceMappingURL=ranking.component.js.map
