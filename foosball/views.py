@@ -10,7 +10,8 @@ def get_players(request):
     if request.method == 'GET':
         players = Player.objects.all()
         serializer = PlayerSerializer(players, many=True)
-        return Response(serializer.data)
+        print('Returned %s' % serializer.data)
+        return Response(serializer.data, status=status.HTTP_200_OK)
 
 
 @api_view(['POST'])
