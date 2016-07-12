@@ -1,0 +1,36 @@
+.tabs .indicator, .picker__date-display, .picker__weekday-display{
+    background-color: #03a9f4;
+}
+.picker__close, .picker__today, .picker__day.picker__day--today {
+	color: #03a9f4;
+}
+.picker__day--selected, .picker__day--selected:hover, .picker--focused .picker__day--selected{
+	background-color: #03a9f4;
+}
+.error {
+	background-color: #ff9e80;
+	color: black;
+}
+.success {
+	background-color: #ccff90;
+	color: black;
+}
+.fa-trash-o {
+	color: red;
+}
+.fa-trash-o:hover {
+	color: #ff9e80;
+}
+#body {
+	visibility: hidden;
+}
+.preloader-wrapper {
+	visibility: visible;
+    left : 50%;
+    top : 50%;
+    position : absolute;
+}
+.table-link {
+	color:#03a9f4 !important;
+	text-transform:none !important;
+}
