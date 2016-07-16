@@ -45,18 +45,6 @@ INSTALLED_APPS = [
     'tripyplan',
 ]
 
-SOCIALACCOUNT_PROVIDERS = {
-    'google':   {
-            'SCOPE': ['email'],
-            'AUTH_PARAMS':  { 
-                'access_type': 'online' 
-            }
-    }
-}
-
-SITE_ID = 1
-LOGIN_REDIRECT_URL = '/'
-
 MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -85,6 +73,28 @@ TEMPLATES = [
         },
     },
 ]
+
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
+
+SOCIALACCOUNT_PROVIDERS = {
+    'google':   {
+            'SCOPE': ['email'],
+            'AUTH_PARAMS':  { 
+                'access_type': 'online' 
+            }
+    }
+}
+
+SITE_ID = 1
+LOGIN_REDIRECT_URL = '/'
+EMAIL_BACKEND='django.core.mail.backends.console.EmailBackend'
+ACCOUNT_AUTHENTICATION_METHOD = 'email' 
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory' 
+ACCOUNT_USERNAME_REQUIRED = False
 
 WSGI_APPLICATION = 'project_tripyplan.wsgi.application'
 
