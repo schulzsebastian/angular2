@@ -37,12 +37,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
+    'api',
+    'tripyplan',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
-    'api',
-    'tripyplan',
 ]
 
 MIDDLEWARE_CLASSES = [
