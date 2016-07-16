@@ -36,9 +36,26 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
     'api',
     'tripyplan',
 ]
+
+SOCIALACCOUNT_PROVIDERS = {
+    'google':   {
+            'SCOPE': ['email'],
+            'AUTH_PARAMS':  { 
+                'access_type': 'online' 
+            }
+    }
+}
+
+SITE_ID = 1
+LOGIN_REDIRECT_URL = '/'
 
 MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',
