@@ -1,0 +1,26 @@
+<nav class="light-blue" role="navigation">
+  <div class="nav-wrapper container">
+    <a id="logo-container" href="{% url 'index' %}" class="brand-logo" style='font-family:"Josefin Sans";padding-left:10px'>Tripyplan</a>
+    {% if user.is_authenticated %}
+    <ul class="right hide-on-med-and-down">
+      <li>{{user}}</li>
+      <li>
+        <a href="{% url 'account_logout' %}"><i class="material-icons" style="font-size:20px;">power_settings_new</i></a>
+      </li>
+    </ul>
+    <ul id="nav-mobile" class="side-nav">
+      <li><a href="#">Dashboard</a></li>
+    </ul>
+    {% else %}
+    {% load socialaccount %}
+    <ul class="right hide-on-med-and-down">
+      <li><a href="{% provider_login_url 'google' process='login'%}">Sign in with <i class="fa fa-google"></i></a></li>
+    </ul>
+    <ul id="nav-mobile" class="side-nav">
+      <li><a href="{% provider_login_url 'google' process='login'%}">Sign in with <i class="fa fa-google"></i></a></li>
+      {% include "socialaccount/snippets/provider_list.html" with process="login" %}
+    </ul>
+    {% endif %}
+    <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+  </div>
+</nav>
